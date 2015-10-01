@@ -1,3 +1,11 @@
+<!-- 
+====================
+Autor: Iván Vivas
+ivanvivas@gmail.com
+Septiembre - 2015
+====================
+ -->
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -5,24 +13,190 @@
     <!-- Compatibilidad con explorer/edge -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>Profit Innova - DEMO</title>
-
+    <!-- SEO: Se recomienda agregar algunos tópicos al título -->
+    <title>Profit Innova - Equipos e Instalaciones Industriales, Servicios de Ingeniería y Consultoría</title>
+    <meta type="description" content="Profit Innova: Como ingeniería internacional y proveedor de equipos damos soluciones industriales concretas. Ofrecemos equipos e instalaciones industriales, servicios de ingeniería y consultoría"/>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <!-- Iconos -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+    <!-- Fuentes -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto|Roboto:300|Montserrat' rel='stylesheet' type='text/css' />
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
   </head>
   <body>
-    <h1>Hello, world!</h1>
-
+    <!--
+    =============================
+    HEADER
+    =============================
+    -->
+    <div class="container-fluid">
+      <header>
+        <div class="row">
+          <div id="top-background" >
+            <nav id="menu-nav">
+              <ul id="menu">
+                <li class="li-n1"><a class="a-n1" href="">INICIO</a></li>
+                <li class="li-n1"><a class="a-n1" href="">SOBRE NOSOTROS</a></li>
+                <li class="li-n1">
+                  <a  class="a-n1" href="">PRODUCTOS Y SERVICIOS <i class="material-icons" />keyboard_arrow_down</i></a>
+                  <ul id="sub-menu">
+                    <li class="li-n2"><a class="a-n2" href="">PROCESOS INDUSTRIALES</a></li>
+                    <li class="li-n2"><a class="a-n2" href="">TECNOLOGÍA DEL AGUA</a></li>
+                    <li class="li-n2"><a class="a-n2" href="">SECADEROS</a></li>
+                    <li class="li-n2"><a class="a-n2" href="">FILTRACIÓN</a></li>
+                    <li class="li-n2"><a class="a-n2" href="">TEJIDOS METÁLICOS</a></li>
+                    <li class="li-n2"><a class="a-n2" href="">CONSULTORÍA INDUSTRIAL</a></li>
+                  </ul>
+                </li>
+                <li class="li-n1"><a class="a-n1" href="">CONTACTO</a></li>
+              </ul>
+            </nav>
+            <img src="img/logo3.png" alt="Profit Innova logo">
+            <h1>Looking  for your benefits</h1>
+            <!-- SCROLL PARA NIVEL 2 -->
+            <div class="scroll">
+              <a href="#row1-n2">VER MÁS</a>
+              <a id="icon-scroll" href="#row1-n2"><i class="material-icons">keyboard_arrow_down</i></a>
+            </div>   
+          </div>
+        </div>
+      </header>
+      
+      <!--
+      =============================
+      NIVEL 2
+      =============================
+      -->
+      <div id="row1-n2" class="row">
+        <div id="proc-ind" class="col-md-10 col-md-offset-1">
+          <div id="proc-ind-avatar" class="circulo"></div>
+          <a href=""><h2>PROCESOS INDUSTRIALES</h2></a>
+          <div id="proc-ind-linea" class="linea-avatar"></div>
+          <p>Ofrecemos soluciones y servicios, desde la planificación (estudio de viabilidad, diseño conceptual, ingeniería básica, ingeniería de detalle) hasta la puesta en marcha de plantas industriales... <a href="">Leer más</a></p>
+        </div>  
+      </div>
+      <div id="row2-n2" class="row">
+        <div id="tec-agua" class="col-md-10 col-md-offset-1">
+          <div id="tec-agua-avatar" class="circulo"></div>
+          <a href=""><h2>TECNOLOGÍA DEL AGUA</h2></a>
+          <div id="tec-agua-linea" class="linea-avatar"></div>
+          <p>Construimos, cualificamos y suministramos plantas completas listas para su puesta en marcha...<br> <a href="">Leer más</a></p>
+        </div>  
+      </div>
+      <div id="row3-n2" class="row">
+        <div id="tec-sec" class="col-md-10 col-md-offset-1">
+          <div id="tec-sec-avatar" class="circulo"></div>
+          <a href=""><h2>TECNOLOGÍA DE SECADO</h2></a>
+          <div id="tec-sec-linea" class="linea-avatar"></div>
+          <p>El secadero de lecho fluido en vapor sobrecalentado representa una tecnología única en el mundo con resultados industriales únicos...<br> <a href="">Leer más</a></p>
+        </div>
+      </div>
+      <!--
+      =============================
+      SEPARADOR PARALLAX
+      =============================
+      -->            
+      <div class="module parallax parallax-1" id="separador">
+        <div class="container">
+          <p>Como ingeniería internacional y proveedor de equipos<br> damos soluciones industriales concretas</p>
+        </div>
+      </div>
+      <!--
+      =============================
+      NIVEL 3
+      =============================
+      -->
+      <div id="row1-n3" class="row">
+        <div id="filt-tam" class="col-md-10 col-md-offset-1">
+          <div id="filt-tam-avatar" class="circulo"></div>
+          <a href=""><h2>FILTRACIÓN Y TAMIZADO</h2></a>
+          <div id="filt-tam-linea" class="linea-avatar"></div>
+          <p>Los procesos de filtración son de gran utilidad desde la protección del medio ambiente, pasando por la seguridad en la industria alimentaria, hasta en los depositos de combustible de cualquier motor...<br> <a href="">Leer más</a></p>
+        </div>  
+      </div>
+      <div id="row2-n3" class="row">
+        <div id="tej-met" class="col-md-10 col-md-offset-1">
+          <div id="tej-met-avatar" class="circulo"></div>
+          <a href=""><h2>TEJIDOS METÁLICOS</h2></a>
+          <div id="tej-met-linea" class="linea-avatar"></div>
+          <p>Nuestras fábricas de tejido metálico en Alemania producen una extensa gama de tejidos. Éstos se diferencian entre sí por los diámetros de hilo, la luz de malla, los entramados y los materiales...<br> <a href="">Leer más</a></p>
+        </div>  
+      </div>
+      <div id="row3-n3" class="row">
+        <div id="cons-ind" class="col-md-10 col-md-offset-1">
+          <div id="cons-ind-avatar" class="circulo"></div>
+          <a href=""><h2>CONSULTORÍA INDUSTRIAL</h2></a>
+          <div id="cons-ind-linea" class="linea-avatar"></div>
+          <p>Ofrecemos: Utilidad, <i>Know How</i>, <i>Know Who</i>, Enfoque internacional global...<br> <a href="">Leer más</a></p>
+        </div>
+      </div>
+      <!--
+      =============================
+      FOOTER
+      =============================
+      -->
+      <footer>
+        <div id="footer-up" class="row">
+          <div id="direccion">
+            <h3>PROFIT INNOVA, S.L.</h3>
+            <address>
+              Calle Malaquita, 33<br>
+              28224 Pozuelo de Alarcón<br> 
+              Madrid<br> 
+              España
+            </address>
+          </div>
+          <div id="contacto">
+            <h3>CONTACTO</h3>
+            <a href="mailto:eco@profitinnova.com">eco@profitinnova.com</a><br>
+            +34 917 153 178<br>
+            <a href="https://www.linkedin.com/company/profit-innova-s-l-">LinkedIn</a>
+          </div>
+        </div>
+        <div id="copyright" class="row">
+          <p>Profit Innova Copyright &copy 2015. All Rights Reserved.</p>
+        </div>
+      </footer> 
+    </div>
+    <!--
+    =============================
+    BOTON DE SUBIR A TOP
+    =============================
+    -->
+    <a href="#0" class="cd-top"><i class="material-icons">arrow_drop_up</i></a>
+    <!--
+    =============================
+    SCRIPTS
+    =============================
+    -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- Para el parallax: fondo se mueve con scroll-->
+    <script src="js/parallax.js"></script>
+    <!-- Para scroll suave dentro de la misma pagina desde un anchor -->
+    <script>
+      $(function() {
+          $('a[href*=#]:not([href=#])').click(function() {
+          if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                if (target.length) {
+                  $('html,body').animate({
+                    scrollTop: target.offset().top}, 1000);
+                  return false;
+                }
+            }
+          });
+      });
+    </script>
+    <!-- Para el boton de Ir Arriba -->
+    <script src="js/smooth-scroll.js"></script>
   </body>
 </html>
