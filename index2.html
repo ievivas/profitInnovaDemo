@@ -55,24 +55,12 @@ Septiembre - 2015
                 </li>
                 <li class="li-n1"><a class="a-n1" href="">CONTACTO</a></li>
               </ul>
-
-              <!-- Menu dispositivos pequeños -->
-              <div class="menu-small">
-                <a class="toggle-nav" href="#">&#9776;</a>
-                <ul class="active">
-                  <li><a href=""></a>Sobre Nosotros</li>
-                  <li><a href="#row1-n2"></a>Productos y Servicios</li>
-                  <li><a href=""></a>Contacto</li>
-                </ul>
-              </div>
             </nav>
-
-            <!-- Logo, slogan -->
             <img src="img/logo3.png" alt="Profit Innova logo">
             <h1>Looking  for your benefits</h1>
             <!-- SCROLL PARA NIVEL 2 -->
             <div class="scroll">
-              <a href="#row1-n2">VER MÁS</a><br>
+              <a href="#row1-n2">VER MÁS</a>
               <a id="icon-scroll" href="#row1-n2"><i class="material-icons">keyboard_arrow_down</i></a>
             </div>   
           </div>
@@ -84,24 +72,24 @@ Septiembre - 2015
       NIVEL 2
       =============================
       -->
-      <div id="row1-n2" class="row row-n2">
-        <div id="proc-ind" class="col-xs-10 col-sm-10 col-md-10 col-md-offset-1">
+      <div id="row1-n2" class="row">
+        <div id="proc-ind" class="col-md-10 col-md-offset-1">
           <div id="proc-ind-avatar" class="circulo"></div>
           <a href=""><h2>PROCESOS INDUSTRIALES</h2></a>
           <div id="proc-ind-linea" class="linea-avatar"></div>
-          <p>Ofrecemos soluciones y servicios, desde la planificación (estudio de viabilidad, diseño conceptual, ingeniería básica, ingeniería de detalle) hasta la puesta en marcha... <a href="">Leer más</a></p>
+          <p>Ofrecemos soluciones y servicios, desde la planificación (estudio de viabilidad, diseño conceptual, ingeniería básica, ingeniería de detalle) hasta la puesta en marcha de plantas industriales... <a href="">Leer más</a></p>
         </div>  
       </div>
-      <div id="row2-n2" class="row row-n2">
-        <div id="tec-agua" class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
+      <div id="row2-n2" class="row">
+        <div id="tec-agua" class="col-md-10 col-md-offset-1">
           <div id="tec-agua-avatar" class="circulo"></div>
           <a href=""><h2>TECNOLOGÍA DEL AGUA</h2></a>
           <div id="tec-agua-linea" class="linea-avatar"></div>
           <p>Construimos, cualificamos y suministramos plantas completas listas para su puesta en marcha...<br> <a href="">Leer más</a></p>
         </div>  
       </div>
-      <div id="row3-n2" class="row row-n2">
-        <div id="tec-sec" class="col-xs-10 col-sm-10 col-md-10 col-md-offset-1">
+      <div id="row3-n2" class="row">
+        <div id="tec-sec" class="col-md-10 col-md-offset-1">
           <div id="tec-sec-avatar" class="circulo"></div>
           <a href=""><h2>TECNOLOGÍA DE SECADO</h2></a>
           <div id="tec-sec-linea" class="linea-avatar"></div>
@@ -123,24 +111,24 @@ Septiembre - 2015
       NIVEL 3
       =============================
       -->
-      <div id="row1-n3" class="row row-n3">
-        <div id="filt-tam" class="col-xs-10 col-sm-10 col-md-10 col-md-offset-1">
+      <div id="row1-n3" class="row">
+        <div id="filt-tam" class="col-md-10 col-md-offset-1">
           <div id="filt-tam-avatar" class="circulo"></div>
           <a href=""><h2>FILTRACIÓN Y TAMIZADO</h2></a>
           <div id="filt-tam-linea" class="linea-avatar"></div>
           <p>Los procesos de filtración son de gran utilidad desde la protección del medio ambiente, pasando por la seguridad en la industria alimentaria, hasta en los depositos de combustible de cualquier motor...<br> <a href="">Leer más</a></p>
         </div>  
       </div>
-      <div id="row2-n3" class="row row-n3">
-        <div id="tej-met" class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
+      <div id="row2-n3" class="row">
+        <div id="tej-met" class="col-md-10 col-md-offset-1">
           <div id="tej-met-avatar" class="circulo"></div>
           <a href=""><h2>TEJIDOS METÁLICOS</h2></a>
           <div id="tej-met-linea" class="linea-avatar"></div>
-          <p>Nuestras fábricas de tejido metálico en Alemania producen una extensa gama de tejidos. Éstos se diferencian entre sí por los diámetros de hilo...<br> <a href="">Leer más</a></p>
+          <p>Nuestras fábricas de tejido metálico en Alemania producen una extensa gama de tejidos. Éstos se diferencian entre sí por los diámetros de hilo, la luz de malla, los entramados y los materiales...<br> <a href="">Leer más</a></p>
         </div>  
       </div>
-      <div id="row3-n3" class="row row-n3">
-        <div id="cons-ind" class="col-xs-10 col-sm-10 col-md-10 col-md-offset-1">
+      <div id="row3-n3" class="row">
+        <div id="cons-ind" class="col-md-10 col-md-offset-1">
           <div id="cons-ind-avatar" class="circulo"></div>
           <a href=""><h2>CONSULTORÍA INDUSTRIAL</h2></a>
           <div id="cons-ind-linea" class="linea-avatar"></div>
@@ -208,19 +196,7 @@ Septiembre - 2015
           });
       });
     </script>
-    
     <!-- Para el boton de Ir Arriba -->
     <script src="js/smooth-scroll.js"></script>
-
-    <!-- Para el menu toggle -->
-    <script>
-      jQuery(document).ready(function() {
-        jQuery('.toggle-nav').click(function(e) {
-          jQuery(this).toggleClass('active');
-          jQuery('.menu-small ul').toggleClass('active');
-          e.preventDefault();
-        });
-      });
-    </script>
   </body>
 </html>

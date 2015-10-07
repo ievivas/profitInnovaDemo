@@ -10,6 +10,14 @@ $color-oscuro: rgb(100, 100, 100);
 $fuente-principal: 'Roboto', sans-serif;
 $fuente-secundaria: 'Montserrat', sans-serif;
 
+$break-large: 1170px;
+$break-medium: 970px;
+$break-small: 630px;
+$break-small-2: 750px;
+$break-phone: 375px;
+$min-width: 350px;
+
+
 // =================== 
 // MIXINS
 // ===================
@@ -106,11 +114,12 @@ $fuente-secundaria: 'Montserrat', sans-serif;
 body {
 	font-family: $fuente-principal;
 	color: $color-claro;
+	min-width: $min-width;
 	//Background con gradiente
 	background: rgba(226,226,226,1);
 	background: -moz-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(219,219,219,0.96) 22%, rgba(254,254,254,0.89) 53%, rgba(209,209,209,0.8) 100%);
 	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(226,226,226,1)), color-stop(22%, rgba(219,219,219,0.96)), color-stop(53%, rgba(254,254,254,0.89)), color-stop(100%, rgba(209,209,209,0.8)));
-	background: -webkit-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(219,219,219,0.96) 22%, rgba(254,254,254,0.89) 53%, rgba(209,209,209,0.8) 100%);
+	
 	background: -o-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(219,219,219,0.96) 22%, rgba(254,254,254,0.89) 53%, rgba(209,209,209,0.8) 100%);
 	background: -ms-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(219,219,219,0.96) 22%, rgba(254,254,254,0.89) 53%, rgba(209,209,209,0.8) 100%);
 	background: linear-gradient(to right, rgba(226,226,226,1) 0%, rgba(219,219,219,0.96) 22%, rgba(254,254,254,0.89) 53%, rgba(209,209,209,0.8) 100%);
@@ -123,9 +132,14 @@ body {
 // 	TOP - MENU, LOGO, SLOGAN
 // ===================
 #top-background {
-	background-image: url("../img/top-background.jpg");
-	background-size: 100% auto;
-	background-repeat: no-repeat;
+	background: rgba(9,91,36,1);
+	background: -moz-linear-gradient(top, rgba(9,91,36,1) 0%, rgba(209,212,33,0.5) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(9,91,36,1)), color-stop(100%, rgba(209,212,33,0.5)));
+	background: -webkit-linear-gradient(top, rgba(9,91,36,1) 0%, rgba(209,212,33,0.5) 100%);
+	background: -o-linear-gradient(top, rgba(9,91,36,1) 0%, rgba(209,212,33,0.5) 100%);
+	background: -ms-linear-gradient(top, rgba(9,91,36,1) 0%, rgba(209,212,33,0.5) 100%);
+	background: linear-gradient(to bottom, rgba(9,91,36,1) 0%, rgba(209,212,33,0.5) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#095b24', endColorstr='#d1d421', GradientType=0 );
 	text-align: center;
 	#menu-nav {
 		padding-top: 50px;
@@ -138,6 +152,13 @@ body {
 			font-family: $fuente-secundaria;
 			margin: auto;
 			@include transition(background-color, 0.5s, ease);
+			@media screen and (max-width: $break-medium) {
+			 		width: 600px;
+			 		height: 52px;
+			}
+			@media screen and (max-width: $break-small) {
+				display: none;
+			}
 			&:hover {
 				background-color: rgba(100, 100, 100, 0.3);
 			}
@@ -146,11 +167,17 @@ body {
 				margin: 30px 25px;
 				text-shadow: 0px 0px 8px black;
 				vertical-align: top;
+				@media screen and (max-width: $break-medium) {
+			 		margin: 15px 10px;
+			 	}
 				.a-n1 {
 					color: $color-claro;
 					text-shadow: 0px 0px 8px black;
 					text-decoration: none;
 					padding: 30px 0px;
+					@media screen and (max-width: $break-medium) {
+			 			padding: 15px 0px;
+			 		}
 					@include transition(color, 0.5s, ease);
 					@include transition(text-shadow, 0.5s, ease);
 					&:hover {
@@ -180,6 +207,9 @@ body {
 					margin-top: 24px;
 					position: relative;
 					z-index: 2;
+					@media screen and (max-width: $break-medium) {
+						margin-top: 11px;
+					}
 					.li-n2 {
 						display: block;
 						@include dimensiones(100%, 50px);
@@ -201,6 +231,71 @@ body {
 				}
 			}
 		}
+		/*----- Toggle Button -----*/
+		.toggle-nav, .menu-small {
+    		display:none;
+		}
+		/*----- Menu Small-----*/
+		@media screen and (max-width: $break-small) {
+		    .menu-small {
+		        position:relative;
+        		display:block;
+		    }
+		    .menu-small ul.active {
+    			display:none;
+			}
+			.menu-small ul {
+		        width: 50%;
+		        position:absolute;
+		        top:78px;
+		        left: 25%;
+		        background-color: rgba(100, 100, 100, 0.7);
+		        border-radius:3px;
+		        border: 1px solid $color-primario;
+		        z-index: 3;
+		    }
+ 
+		    .menu-small li {
+		        margin:10px 0px 10px 0px;
+		        float:none;
+		        display:block;
+		        font-size: 22px;
+		    }
+ 
+		    .menu-small a {
+		        display:block;
+		    }
+ 
+		    .toggle-nav {
+		        display:inline-block;
+		        border-radius: 3px;
+		        width: 80px;
+		        border: 1px solid $color-primario;
+		        background-color: rgba(100, 100, 100, 0.5);
+		        color: $color-claro;
+		        font-size:40px;
+		        padding: 10px 20px;
+		        margin: auto;
+		    }
+ 
+		    .toggle-nav:hover, .toggle-nav:visited, .toggle-nav:link, .toggle-nav.active {
+		        text-decoration:none;
+		        color: $color-claro;
+		    }
+		}
+		@media screen and (max-width: $break-phone) {
+			.toggle-nav {
+				width: 50px;
+				font-size:30px;
+		        padding: 5px 10px;
+			}
+			.menu-small ul {
+				top:53px;
+			}
+			.menu-small li {
+				font-size: 16px;
+			}
+		}
 	}
 	img {
 		display: block;
@@ -208,6 +303,12 @@ body {
 		padding-top: 60px;
 		position: relative;
 		z-index: 1;
+		@media screen and (max-width: $break-medium) {
+			width: 400px;
+		}
+		@media screen and (max-width: $break-small) {
+			width: 300px;
+		}
 	}
 	h1 {
 		font-weight: lighter;
@@ -216,21 +317,34 @@ body {
 		text-shadow: 0px 0px 8px black;
 		position: relative;
 		z-index: 1;
+		@media screen and (max-width: $break-medium) {
+			font-size: 25px;
+		}
+		@media screen and (max-width: $break-small) {
+			font-size: 20px;
+		}
 	}
 	// SCROLL PARA NIVEL 2
 	.scroll {
 		display: block;
 		margin: 150px auto 0 auto;
 		a {
+			display: inline-block;
 			color: $color-claro;
-			display: block;
 			font-size: 18px;
 			text-shadow: 0 0 9px black;
+			@media screen and (max-width: $break-medium) {
+				font-size: 14px;
+				margin-bottom: 10px;
+			}
 			&:hover, &:link {
 				text-decoration: none;
 			}
 			i {
 				font-size: 60px;
+				@media screen and (max-width: $break-medium) {
+					font-size: 40px;
+				}
 			}
 		}
 		#icon-scroll {
@@ -249,6 +363,17 @@ body {
 // =================== 
 // NIVEL 2
 // ===================
+.row-n2, .row-n3 {
+	@media screen and (max-width: $break-medium) {
+		margin-bottom: 40px;
+	}
+	@media screen and (max-width: 500px) {
+		margin-bottom: 70px;
+	}
+	@media screen and (max-width: $break-phone) {
+		margin-bottom: 110px;
+	}
+}
 #row1-n2 {
 	padding-top: 30px;
 }
@@ -259,11 +384,36 @@ body {
 	@include circulo(none, 200px);
 	background-size: 200px;
 	border: 5px solid $color-primario;
+	@media screen and (max-width: $break-small-2) {
+		@include circulo(none, 150px);
+		background-size: 150px;
+	}
+	@media screen and (max-width: 500px) {
+		@include circulo(none, 125px);
+		background-size: 125px;	
+	}
+	@media screen and (max-width: $break-phone) {
+		@include circulo(none, 100px);
+		background-size: 100px;	
+		border: 3px solid $color-primario;
+	}
 }	
 .linea-avatar {
 	@include dimensiones(390px, 5px);
 	background-color: $color-primario;
 	position: absolute;
+	@media screen and (max-width: $break-small-2) {
+		@include dimensiones(380px, 3px);
+	}
+	@media screen and (max-width: $break-small) {
+		@include dimensiones(300px, 3px);
+	}
+	@media screen and (max-width: 500px) {
+		@include dimensiones(280px, 3px);
+	}
+	@media screen and (max-width: $break-phone) {
+		@include dimensiones(230px, 3px);
+	}
 }
 #proc-ind {
 	position: relative;
@@ -277,12 +427,51 @@ body {
 		top: 50px;
 		left: 225px;
 		@include transition(all, 1s, ease);
+		white-space: nowrap;
+		@media screen and (max-width: $break-small-2) {
+			top: 33px;
+			left: 180px;
+			font-size: 22px;
+			-webkit-transition-property: none;
+			-moz-transition-property: none;
+			-ms-transition-property: none;
+			transition-property: none;
+		}
+		@media screen and (max-width: $break-small) {
+			font-size: 20px;
+		}
+		@media screen and (max-width: 500px) {
+			font-size: 19px;
+			top: 20px;
+			left: 150px;
+		}
+		@media screen and (max-width: $break-phone) {
+			font-size: 18px;
+			top: 8px;
+			left: 120px;
+		}
 	}
 	#proc-ind-linea {
 		top: 100px;
 		left: 212px;
 		@include border(0 5px 5px 0);
 		@include transitions(width 1s, height 1s);
+		@media screen and (max-width: $break-small-2) {
+			top: 75px;
+			left: 165px;
+			-webkit-transition-property: none;
+			-moz-transition-property: none;
+			-ms-transition-property: none;
+			transition-property: none;
+		}
+		@media screen and (max-width: 500px) {
+			top: 60px;
+			left: 140px;
+		}
+		@media screen and (max-width: $break-phone) {
+			top: 45px;
+			left: 115px;
+		}
 	}
 	p {
 		color: $color-oscuro;
@@ -295,16 +484,36 @@ body {
 		a {
 			color: $color-secundario;
 		}
+		@media screen and (max-width: $break-small-2) {
+			top: 78px;
+			left: 170px;
+		}
+		@media screen and (max-width: $break-small) {
+			@include dimensiones(290px, 50px);
+		}
+		@media screen and (max-width: 500px) {
+			@include dimensiones(270px, 50px);
+			top: 62px;
+			left: 144px;
+		}
+		@media screen and (max-width: $break-phone) {
+			@include dimensiones(200px, 100px);
+			top: 46px;
+			left: 117px;
+			text-align: left;
+		}
 	}
 	a {
-		&:hover {
-			h2 {
-				color: black;
-				font-weight: bold;
-				left: 250px;
-			}
-			+ #proc-ind-linea {
-				@include dimensiones(450px, 10px);
+		@media screen and (min-width: $break-small-2) {
+			&:hover {
+				h2 {
+					color: black;
+					font-weight: bold;
+					left: 225px;
+				}
+				+ #proc-ind-linea {
+					@include dimensiones(450px, 10px);
+				}
 			}
 		}
 	}
@@ -323,12 +532,50 @@ body {
 		//Para que evitar salto de linea por flotar a la derecha
 		white-space: nowrap;
 		@include transition(all, 1s, ease);
+		@media screen and (max-width: $break-small-2) {
+			top: 33px;
+			right: 180px;
+			font-size: 22px;
+			-webkit-transition-property: none;
+			-moz-transition-property: none;
+			-ms-transition-property: none;
+			transition-property: none;
+		}
+		@media screen and (max-width: $break-small) {
+			font-size: 20px;
+		}
+		@media screen and (max-width: 500px) {
+			font-size: 19px;
+			top: 20px;
+			right: 150px;
+		}
+		@media screen and (max-width: $break-phone) {
+			font-size: 18px;
+			top: 8px;
+			right: 120px;
+		}
 	}
 	#tec-agua-linea {
 		top: 100px;
 		right: 212px;
 		@include border(5px 0px 0px 5px);
 		@include transitions(width 1s, height 1s);
+		@media screen and (max-width: $break-small-2) {
+			top: 75px;
+			right: 165px;
+			-webkit-transition-property: none;
+			-moz-transition-property: none;
+			-ms-transition-property: none;
+			transition-property: none;
+		}
+		@media screen and (max-width: 500px) {
+			top: 60px;
+			right: 140px;
+		}
+		@media screen and (max-width: $break-phone) {
+			top: 45px;
+			right: 115px;
+		}
 	}
 	p {
 		color: $color-oscuro;
@@ -341,18 +588,37 @@ body {
 		a {
 			color: $color-secundario;
 		}
+		@media screen and (max-width: $break-small-2) {
+			top: 78px;
+			right: 170px;
+		}
+		@media screen and (max-width: $break-small) {
+			@include dimensiones(290px, 50px);
+		}
+		@media screen and (max-width: 500px) {
+			@include dimensiones(270px, 50px);
+			top: 62px;
+			right: 144px;
+		}
+		@media screen and (max-width: $break-phone) {
+			@include dimensiones(200px, 100px);
+			top: 46px;
+			right: 117px;
+			text-align: left;
+		}
 	}
 	a {
-
-		&:hover {
-			h2 {
-				color: black;
-				font-weight: bold;
-				right: 270px;
-			}
-			//Selector de adyasencia +
-			+ #tec-agua-linea {
-				@include dimensiones(450px, 10px);
+		@media screen and (min-width: $break-small-2) {
+			&:hover {
+				h2 {
+					color: black;
+					font-weight: bold;
+					right: 180px;
+				}
+				//Selector de adyasencia +
+				+ #tec-agua-linea {
+					@include dimensiones(450px, 10px);
+				}
 			}
 		}
 	}
@@ -367,13 +633,52 @@ body {
 		position: absolute;
 		top: 50px;
 		left: 230px;
+		white-space: nowrap;
 		@include transition(all, 1s, ease);
+		@media screen and (max-width: $break-small-2) {
+			top: 33px;
+			left: 180px;
+			font-size: 22px;
+			-webkit-transition-property: none;
+			-moz-transition-property: none;
+			-ms-transition-property: none;
+			transition-property: none;
+		}
+		@media screen and (max-width: $break-small) {
+			font-size: 20px;
+		}
+		@media screen and (max-width: 500px) {
+			font-size: 19px;
+			top: 20px;
+			left: 150px;
+		}
+		@media screen and (max-width: $break-phone) {
+			font-size: 18px;
+			top: 8px;
+			left: 120px;
+		}
 	}
 	#tec-sec-linea {
 		top: 100px;
 		left: 212px;
 		@include border(0 5px 5px 0);
 		@include transitions(width 1s, height 1s);
+		@media screen and (max-width: $break-small-2) {
+			top: 75px;
+			left: 165px;
+			-webkit-transition-property: none;
+			-moz-transition-property: none;
+			-ms-transition-property: none;
+			transition-property: none;
+		}
+		@media screen and (max-width: 500px) {
+			top: 60px;
+			left: 140px;
+		}
+		@media screen and (max-width: $break-phone) {
+			top: 45px;
+			left: 115px;
+		}
 	}
 	p {
 		color: $color-oscuro;
@@ -386,16 +691,36 @@ body {
 		a {
 			color: $color-secundario;
 		}
+		@media screen and (max-width: $break-small-2) {
+			top: 78px;
+			left: 170px;
+		}
+		@media screen and (max-width: $break-small) {
+			@include dimensiones(290px, 50px);
+		}
+		@media screen and (max-width: 500px) {
+			@include dimensiones(270px, 50px);
+			top: 62px;
+			left: 144px;
+		}
+		@media screen and (max-width: $break-phone) {
+			@include dimensiones(200px, 100px);
+			top: 46px;
+			left: 117px;
+			text-align: left;
+		}
 	}
 	a {
-		&:hover {
-			h2 {
-				color: black;
-				font-weight: bold;
-				left: 250px;
-			}
-			+ #tec-sec-linea {
-				@include dimensiones(450px, 10px);
+		@media screen and (min-width: $break-small-2) {
+			&:hover {
+				h2 {
+					color: black;
+					font-weight: bold;
+					left: 250px;
+				}
+				+ #tec-sec-linea {
+					@include dimensiones(450px, 10px);
+				}
 			}
 		}
 	}
@@ -407,6 +732,18 @@ body {
 .parallax-1 {
 	background-image: url("../img/fondo-separador.jpg");
 	background-size: 100% auto;
+	@media screen and (max-width: $break-medium) {
+			background-size: 970px auto;
+		}
+	@media screen and (max-width: $break-small-2) {
+		background-size: $break-small-2 auto;
+	}
+	@media screen and (max-width: $break-small) {
+		background-size: $break-small auto;
+	}
+	@media screen and (max-width: $break-phone) {
+		background-size: $break-phone auto;
+	}
 	//background-repeat: no-repeat;
 	width: 100%;
 	padding: 100px 0;
@@ -430,6 +767,15 @@ body {
 		text-align: center;
 		//text-transform: uppercase;
 		//text-shadow: 0 0 10px white;
+		@media screen and (max-width: $break-medium) {
+			font-size: 25px;
+		}
+		@media screen and (max-width: $break-small-2) {
+			font-size: 22px;
+		}
+		@media screen and (max-width: $break-small) {
+			font-size: 18px;
+		}
 	}
 }
 
@@ -453,13 +799,52 @@ body {
 		position: absolute;
 		top: 50px;
 		left: 225px;
+		white-space: nowrap;
 		@include transition(all, 1s, ease);
+		@media screen and (max-width: $break-small-2) {
+			top: 33px;
+			left: 180px;
+			font-size: 22px;
+			-webkit-transition-property: none;
+			-moz-transition-property: none;
+			-ms-transition-property: none;
+			transition-property: none;
+		}
+		@media screen and (max-width: $break-small) {
+			font-size: 20px;
+		}
+		@media screen and (max-width: 500px) {
+			font-size: 19px;
+			top: 20px;
+			left: 150px;
+		}
+		@media screen and (max-width: $break-phone) {
+			font-size: 18px;
+			top: 8px;
+			left: 120px;
+		}
 	}
 	#filt-tam-linea {
 		top: 100px;
 		left: 212px;
 		@include border(0 5px 5px 0);
 		@include transitions(width 1s, height 1s);
+		@media screen and (max-width: $break-small-2) {
+			top: 75px;
+			left: 165px;
+			-webkit-transition-property: none;
+			-moz-transition-property: none;
+			-ms-transition-property: none;
+			transition-property: none;
+		}
+		@media screen and (max-width: 500px) {
+			top: 60px;
+			left: 140px;
+		}
+		@media screen and (max-width: $break-phone) {
+			top: 45px;
+			left: 115px;
+		}
 	}
 	p {
 		color: $color-oscuro;
@@ -472,16 +857,36 @@ body {
 		a {
 			color: $color-secundario;
 		}
+		@media screen and (max-width: $break-small-2) {
+			top: 78px;
+			left: 170px;
+		}
+		@media screen and (max-width: $break-small) {
+			@include dimensiones(290px, 50px);
+		}
+		@media screen and (max-width: 500px) {
+			@include dimensiones(270px, 50px);
+			top: 62px;
+			left: 144px;
+		}
+		@media screen and (max-width: $break-phone) {
+			@include dimensiones(200px, 100px);
+			top: 46px;
+			left: 117px;
+			text-align: left;
+		}
 	}
 	a {
-		&:hover {
-			h2 {
-				color: black;
-				font-weight: bold;
-				left: 250px;
-			}
-			+ #filt-tam-linea {
-				@include dimensiones(450px, 10px);
+		@media screen and (min-width: $break-small-2) {
+			&:hover {
+				h2 {
+					color: black;
+					font-weight: bold;
+					left: 250px;
+				}
+				+ #filt-tam-linea {
+					@include dimensiones(450px, 10px);
+				}
 			}
 		}
 	}
@@ -500,12 +905,50 @@ body {
 		//Para que evitar salto de linea por flotar a la derecha
 		white-space: nowrap;
 		@include transition(all, 1s, ease);
+		@media screen and (max-width: $break-small-2) {
+			top: 33px;
+			right: 180px;
+			font-size: 22px;
+			-webkit-transition-property: none;
+			-moz-transition-property: none;
+			-ms-transition-property: none;
+			transition-property: none;
+		}
+		@media screen and (max-width: $break-small) {
+			font-size: 20px;
+		}
+		@media screen and (max-width: 500px) {
+			font-size: 19px;
+			top: 20px;
+			right: 150px;
+		}
+		@media screen and (max-width: $break-phone) {
+			font-size: 18px;
+			top: 8px;
+			right: 120px;
+		}
 	}
 	#tej-met-linea {
 		top: 100px;
 		right: 212px;
 		@include border(5px 0px 0px 5px);
 		@include transitions(width 1s, height 1s);
+		@media screen and (max-width: $break-small-2) {
+			top: 75px;
+			right: 165px;
+			-webkit-transition-property: none;
+			-moz-transition-property: none;
+			-ms-transition-property: none;
+			transition-property: none;
+		}
+		@media screen and (max-width: 500px) {
+			top: 60px;
+			right: 140px;
+		}
+		@media screen and (max-width: $break-phone) {
+			top: 45px;
+			right: 115px;
+		}
 	}
 	p {
 		color: $color-oscuro;
@@ -518,18 +961,37 @@ body {
 		a {
 			color: $color-secundario;
 		}
+		@media screen and (max-width: $break-small-2) {
+			top: 78px;
+			right: 170px;
+		}
+		@media screen and (max-width: $break-small) {
+			@include dimensiones(290px, 50px);
+		}
+		@media screen and (max-width: 500px) {
+			@include dimensiones(270px, 50px);
+			top: 62px;
+			right: 144px;
+		}
+		@media screen and (max-width: $break-phone) {
+			@include dimensiones(200px, 100px);
+			top: 46px;
+			right: 117px;
+			text-align: left;
+		}
 	}
 	a {
-
-		&:hover {
-			h2 {
-				color: black;
-				font-weight: bold;
-				right: 270px;
-			}
-			//Selector de adyasencia +
-			+ #tej-met-linea {
-				@include dimensiones(450px, 10px);
+		@media screen and (min-width: $break-small-2) {
+			&:hover {
+				h2 {
+					color: black;
+					font-weight: bold;
+					right: 270px;
+				}
+				//Selector de adyasencia +
+				+ #tej-met-linea {
+					@include dimensiones(450px, 10px);
+				}
 			}
 		}
 	}
@@ -544,13 +1006,52 @@ body {
 		position: absolute;
 		top: 50px;
 		left: 230px;
+		white-space: nowrap;
 		@include transition(all, 1s, ease);
+		@media screen and (max-width: $break-small-2) {
+			top: 33px;
+			left: 180px;
+			font-size: 22px;
+			-webkit-transition-property: none;
+			-moz-transition-property: none;
+			-ms-transition-property: none;
+			transition-property: none;
+		}
+		@media screen and (max-width: $break-small) {
+			font-size: 20px;
+		}
+		@media screen and (max-width: 500px) {
+			font-size: 19px;
+			top: 20px;
+			left: 150px;
+		}
+		@media screen and (max-width: $break-phone) {
+			font-size: 18px;
+			top: 8px;
+			left: 120px;
+		}
 	}
 	#cons-ind-linea {
 		top: 100px;
 		left: 212px;
 		@include border(0 5px 5px 0);
 		@include transitions(width 1s, height 1s);
+		@media screen and (max-width: $break-small-2) {
+			top: 75px;
+			left: 165px;
+			-webkit-transition-property: none;
+			-moz-transition-property: none;
+			-ms-transition-property: none;
+			transition-property: none;
+		}
+		@media screen and (max-width: 500px) {
+			top: 60px;
+			left: 140px;
+		}
+		@media screen and (max-width: $break-phone) {
+			top: 45px;
+			left: 115px;
+		}
 	}
 	p {
 		color: $color-oscuro;
@@ -563,16 +1064,36 @@ body {
 		a {
 			color: $color-secundario;
 		}
+		@media screen and (max-width: $break-small-2) {
+			top: 78px;
+			left: 170px;
+		}
+		@media screen and (max-width: $break-small) {
+			@include dimensiones(290px, 50px);
+		}
+		@media screen and (max-width: 500px) {
+			@include dimensiones(270px, 50px);
+			top: 62px;
+			left: 144px;
+		}
+		@media screen and (max-width: $break-phone) {
+			@include dimensiones(200px, 100px);
+			top: 46px;
+			left: 117px;
+			text-align: left;
+		}
 	}
 	a {
-		&:hover {
-			h2 {
-				color: black;
-				font-weight: bold;
-				left: 250px;
-			}
-			+ #cons-ind-linea {
-				@include dimensiones(450px, 10px);
+		@media screen and (min-width: $break-small-2) {
+			&:hover {
+				h2 {
+					color: black;
+					font-weight: bold;
+					left: 250px;
+				}
+				+ #cons-ind-linea {
+					@include dimensiones(450px, 10px);
+				}
 			}
 		}
 	}
@@ -584,6 +1105,11 @@ footer {
 	background-color: $color-primario;
 	color: $color-claro;
 	text-align: center;
+	h3 {
+		@media screen and (max-width: $break-small) {
+			font-size: 20px;
+		}
+	}
 	#footer-up {
 		display: -webkit-flex;
 		display: -moz-flex;
@@ -598,6 +1124,9 @@ footer {
 			//margin-right: 20%;
 			address {
 				font-size: 16px;
+				@media screen and (max-width: $break-small) {
+					font-size: 14px;
+				}
 			}
 		}
 		#contacto {
@@ -606,7 +1135,10 @@ footer {
 			vertical-align: top;
 			a {
 				font-size: 16px;
-				color: $color-claro;	
+				color: $color-claro;
+				@media screen and (max-width: $break-small-2) {
+					font-size: 14px;
+				}
 			}
 		}
 	}

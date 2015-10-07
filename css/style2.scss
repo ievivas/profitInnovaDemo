@@ -1,0 +1,658 @@
+// =================== 
+// VARIABLES
+// ===================
+$color-primario: rgb(149, 178, 72);
+$color-secundario: rgb(190, 201, 61);
+$color-terciario: rgb(209, 212, 33);
+$color-claro: rgb(235, 234, 233); //rgb(245, 245, 245);
+$color-oscuro: rgb(100, 100, 100);
+
+$fuente-principal: 'Roboto', sans-serif;
+$fuente-secundaria: 'Montserrat', sans-serif;
+
+// =================== 
+// MIXINS
+// ===================
+
+//Limpia los margins y paddigs de elemento
+@mixin limpiar() {
+	margin: 0px;
+	padding: 0px;
+}
+
+//Agrega dimensiones a un elemento
+@mixin dimensiones($ancho, $alto) {
+	width: $ancho;
+	height: $alto;
+}
+
+//Agrega sombra a un elemento
+@mixin sombra($h-shadow, $v-shadow, $blur, $spread, $color) {
+	-webkit-box-shadow: $h-shadow $v-shadow $blur $color;
+	-moz-box-shadow: $h-shadow $v-shadow $blur $color;
+	-ms-box-shadow: $h-shadow $v-shadow $blur $color;
+	box-shadow: $h-shadow $v-shadow $blur $color;
+}
+
+//Agrega border-radius
+@mixin border($radio) {
+	-webkit-border-radius: $radio;
+	-moz-border-radius: $radio;
+	-ms-border-radius: $radio;
+	border-radius: $radio;
+}
+
+//hace que un elemento div sea circular
+@mixin circulo($color, $diametro) {
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	border-radius: 50%;
+	background-color: $color;
+	height: $diametro;
+	width: $diametro;
+}
+
+//Para 1 transicion
+@mixin transition($propiedad, $tiempo, $funcion){
+	-webkit-transition: $propiedad $tiempo $funcion;
+	-moz-transition: $propiedad $tiempo $funcion;
+	-ms-transition: $propiedad $tiempo $funcion;
+	transition: $propiedad $tiempo $funcion;
+}
+//Para 2 transiciones
+@mixin transitions($tran1, $tran2){
+	-webkit-transition: $tran1, $tran2;
+	-moz-transition: $tran1, $tran2;
+	-ms-transition: $tran1, $tran2;
+	transition: $tran1, $tran2;
+}
+
+//Para tranformaciones
+@mixin transform($propiedad){
+	-webkit-transform: $propiedad;
+	-moz-transform: $propiedad;
+	-ms-transform: $propiedad;
+	transform: $propiedad;
+}
+
+//Para animaciones
+@mixin animation($animations) {
+	-webkit-animation: #{$animations};
+	-moz-animation: #{$animations};
+	-ms-animation: #{$animations};
+	animation: #{$animations};
+}
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} {
+		@content; 
+	}
+	@-moz-keyframes #{$name} {
+		@content; 
+	}
+	@-ms-keyframes #{$name} {
+		@content; 
+	}
+	@keyframes #{$name} {
+		@content; 
+	}
+}
+
+* {
+	box-sizing: border-box;
+	@include limpiar();
+}
+
+body {
+	font-family: $fuente-principal;
+	color: $color-claro;
+	//Background con gradiente
+	background: rgba(226,226,226,1);
+	background: -moz-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(219,219,219,0.96) 22%, rgba(254,254,254,0.89) 53%, rgba(209,209,209,0.8) 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(226,226,226,1)), color-stop(22%, rgba(219,219,219,0.96)), color-stop(53%, rgba(254,254,254,0.89)), color-stop(100%, rgba(209,209,209,0.8)));
+	background: -webkit-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(219,219,219,0.96) 22%, rgba(254,254,254,0.89) 53%, rgba(209,209,209,0.8) 100%);
+	background: -o-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(219,219,219,0.96) 22%, rgba(254,254,254,0.89) 53%, rgba(209,209,209,0.8) 100%);
+	background: -ms-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(219,219,219,0.96) 22%, rgba(254,254,254,0.89) 53%, rgba(209,209,209,0.8) 100%);
+	background: linear-gradient(to right, rgba(226,226,226,1) 0%, rgba(219,219,219,0.96) 22%, rgba(254,254,254,0.89) 53%, rgba(209,209,209,0.8) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#d1d1d1', GradientType=1 );
+}
+.container-fluid, .row {
+	@include limpiar();
+}
+// =================== 
+// 	TOP - MENU, LOGO, SLOGAN
+// ===================
+#top-background {
+	background-image: url("../img/top-background.jpg");
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	text-align: center;
+	#menu-nav {
+		padding-top: 50px;
+		#menu {
+			text-align: center;
+			border: 1px solid $color-primario;
+			@include border(10px);
+			width: 800px;
+			height: 80px;
+			font-family: $fuente-secundaria;
+			margin: auto;
+			@include transition(background-color, 0.5s, ease);
+			&:hover {
+				background-color: rgba(100, 100, 100, 0.3);
+			}
+			.li-n1 {
+				display: inline-block;
+				margin: 30px 25px;
+				text-shadow: 0px 0px 8px black;
+				vertical-align: top;
+				.a-n1 {
+					color: $color-claro;
+					text-shadow: 0px 0px 8px black;
+					text-decoration: none;
+					padding: 30px 0px;
+					@include transition(color, 0.5s, ease);
+					@include transition(text-shadow, 0.5s, ease);
+					&:hover {
+						color: $color-secundario;
+						text-shadow: 0px 0px 20px black;				
+					}
+				}
+				i {
+					vertical-align: top;
+				}
+				&:hover {
+					#sub-menu {
+						display: block;
+						@include animation("submenu 0.5s");
+						@include keyframes("submenu") {
+							0% {opacity: 0}
+							100% {opacity: 1} 
+						}
+					}
+				}
+				#sub-menu {
+					display: none;
+					background-color: rgba(100, 100, 100, 0.7);
+					@include border(0px 0px 10px 10px);
+					border: 1px solid $color-primario;
+					width: 210px;
+					margin-top: 24px;
+					position: relative;
+					z-index: 2;
+					.li-n2 {
+						display: block;
+						@include dimensiones(100%, 50px);
+						text-align: left;
+						padding-top: 15px;
+						.a-n2 {
+							font-family: $fuente-secundaria;
+							color: $color-claro;
+							font-size: 14px;
+							text-decoration: none;
+							padding-left: 5px;
+							border-bottom: 1px solid $color-primario;
+							&:hover {
+								color: $color-secundario;
+								text-shadow: 0px 0px 10px black;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	img {
+		display: block;
+		margin: auto;
+		padding-top: 60px;
+		position: relative;
+		z-index: 1;
+	}
+	h1 {
+		font-weight: lighter;
+		display: block;
+		color: $color-terciario;
+		text-shadow: 0px 0px 8px black;
+		position: relative;
+		z-index: 1;
+	}
+	// SCROLL PARA NIVEL 2
+	.scroll {
+		display: block;
+		margin: 150px auto 0 auto;
+		a {
+			color: $color-claro;
+			display: block;
+			font-size: 18px;
+			text-shadow: 0 0 9px black;
+			&:hover, &:link {
+				text-decoration: none;
+			}
+			i {
+				font-size: 60px;
+			}
+		}
+		#icon-scroll {
+			margin-top: -20px;
+			@include animation("move-icon 3s infinite");
+			//Animacion keyframes por coderhouse
+			@include keyframes("move-icon") {
+				0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+				40% {transform: translateY(15px);} 
+				60%{transform: translateY(15px);}
+			}	
+		}
+	}	
+}
+
+// =================== 
+// NIVEL 2
+// ===================
+#row1-n2 {
+	padding-top: 30px;
+}
+#row3-n2 {
+	padding-bottom: 30px;
+}
+.circulo {
+	@include circulo(none, 200px);
+	background-size: 200px;
+	border: 5px solid $color-primario;
+}	
+.linea-avatar {
+	@include dimensiones(390px, 5px);
+	background-color: $color-primario;
+	position: absolute;
+}
+#proc-ind {
+	position: relative;
+	#proc-ind-avatar {
+		background-image: url("../img/proc-ind.jpg");
+		display: inline-block;
+	}
+	h2 {
+		color: $color-oscuro;
+		position: absolute;
+		top: 50px;
+		left: 225px;
+		@include transition(all, 1s, ease);
+	}
+	#proc-ind-linea {
+		top: 100px;
+		left: 212px;
+		@include border(0 5px 5px 0);
+		@include transitions(width 1s, height 1s);
+	}
+	p {
+		color: $color-oscuro;
+		font-family: $fuente-secundaria;
+		text-align: justify;
+		@include dimensiones(370px, 50px);
+		position: absolute;
+		top: 110px;
+		left: 225px;
+		a {
+			color: $color-secundario;
+		}
+	}
+	a {
+		&:hover {
+			h2 {
+				color: black;
+				font-weight: bold;
+				left: 250px;
+			}
+			+ #proc-ind-linea {
+				@include dimensiones(450px, 10px);
+			}
+		}
+	}
+}
+#tec-agua {
+	position: relative;
+	#tec-agua-avatar {
+		background-image: url("../img/tec-agua.jpg");
+		float: right;
+	}
+	h2 {
+		color: $color-oscuro;
+		position: absolute;
+		top: 50px;
+		right: 240px;
+		//Para que evitar salto de linea por flotar a la derecha
+		white-space: nowrap;
+		@include transition(all, 1s, ease);
+	}
+	#tec-agua-linea {
+		top: 100px;
+		right: 212px;
+		@include border(5px 0px 0px 5px);
+		@include transitions(width 1s, height 1s);
+	}
+	p {
+		color: $color-oscuro;
+		font-family: $fuente-secundaria;
+		text-align: justify;
+		@include dimensiones(370px, 50px);
+		position: absolute;
+		top: 110px;
+		right: 225px;
+		a {
+			color: $color-secundario;
+		}
+	}
+	a {
+
+		&:hover {
+			h2 {
+				color: black;
+				font-weight: bold;
+				right: 270px;
+			}
+			//Selector de adyasencia +
+			+ #tec-agua-linea {
+				@include dimensiones(450px, 10px);
+			}
+		}
+	}
+}
+#tec-sec {
+	position: relative;
+	#tec-sec-avatar {
+		background-image: url("../img/tec-sec.jpg");
+	}
+	h2 {
+		color: $color-oscuro;
+		position: absolute;
+		top: 50px;
+		left: 230px;
+		@include transition(all, 1s, ease);
+	}
+	#tec-sec-linea {
+		top: 100px;
+		left: 212px;
+		@include border(0 5px 5px 0);
+		@include transitions(width 1s, height 1s);
+	}
+	p {
+		color: $color-oscuro;
+		font-family: $fuente-secundaria;
+		text-align: justify;
+		@include dimensiones(370px, 50px);
+		position: absolute;
+		top: 110px;
+		left: 225px;
+		a {
+			color: $color-secundario;
+		}
+	}
+	a {
+		&:hover {
+			h2 {
+				color: black;
+				font-weight: bold;
+				left: 250px;
+			}
+			+ #tec-sec-linea {
+				@include dimensiones(450px, 10px);
+			}
+		}
+	}
+}
+
+// =================== 
+// SEPARADOR PARALLAX
+// ===================
+.parallax-1 {
+	background-image: url("../img/fondo-separador.jpg");
+	background-size: 100% auto;
+	//background-repeat: no-repeat;
+	width: 100%;
+	padding: 100px 0;
+	// Para cambiar la posicion Y de la imagen, cambiar aqui y en el parallax.js
+	background-position: 0px 900px;
+}
+.container {
+	/* width: 100%;
+	margin: 0 auto;
+	padding: 0 20px; */
+	text-align: center;
+	p {
+		display: inline-block;
+		padding: 30px;
+		background-color: rgba(100, 100, 100, 0.8);
+		border: 1px solid $color-primario;
+		@include border(10px);
+		color: $color-claro;
+		font-size: 30px;
+		line-height: 1;
+		text-align: center;
+		//text-transform: uppercase;
+		//text-shadow: 0 0 10px white;
+	}
+}
+
+// =================== 
+// NIVEL 3
+// ===================
+#row1-n3 {
+	padding-top: 30px;
+}
+#row3-n3 {
+	padding-bottom: 30px;
+}
+#filt-tam {
+	position: relative;
+	#filt-tam-avatar {
+		background-image: url("../img/filt-tam.jpg");
+		display: inline-block;
+	}
+	h2 {
+		color: $color-oscuro;
+		position: absolute;
+		top: 50px;
+		left: 225px;
+		@include transition(all, 1s, ease);
+	}
+	#filt-tam-linea {
+		top: 100px;
+		left: 212px;
+		@include border(0 5px 5px 0);
+		@include transitions(width 1s, height 1s);
+	}
+	p {
+		color: $color-oscuro;
+		font-family: $fuente-secundaria;
+		text-align: justify;
+		@include dimensiones(370px, 50px);
+		position: absolute;
+		top: 110px;
+		left: 225px;
+		a {
+			color: $color-secundario;
+		}
+	}
+	a {
+		&:hover {
+			h2 {
+				color: black;
+				font-weight: bold;
+				left: 250px;
+			}
+			+ #filt-tam-linea {
+				@include dimensiones(450px, 10px);
+			}
+		}
+	}
+}
+#tej-met {
+	position: relative;
+	#tej-met-avatar {
+		background-image: url("../img/tej-met.jpg");
+		float: right;
+	}
+	h2 {
+		color: $color-oscuro;
+		position: absolute;
+		top: 50px;
+		right: 240px;
+		//Para que evitar salto de linea por flotar a la derecha
+		white-space: nowrap;
+		@include transition(all, 1s, ease);
+	}
+	#tej-met-linea {
+		top: 100px;
+		right: 212px;
+		@include border(5px 0px 0px 5px);
+		@include transitions(width 1s, height 1s);
+	}
+	p {
+		color: $color-oscuro;
+		font-family: $fuente-secundaria;
+		text-align: justify;
+		@include dimensiones(370px, 50px);
+		position: absolute;
+		top: 110px;
+		right: 225px;
+		a {
+			color: $color-secundario;
+		}
+	}
+	a {
+
+		&:hover {
+			h2 {
+				color: black;
+				font-weight: bold;
+				right: 270px;
+			}
+			//Selector de adyasencia +
+			+ #tej-met-linea {
+				@include dimensiones(450px, 10px);
+			}
+		}
+	}
+}
+#cons-ind {
+	position: relative;
+	#cons-ind-avatar {
+		background-image: url("../img/cons-ind.jpg");
+	}
+	h2 {
+		color: $color-oscuro;
+		position: absolute;
+		top: 50px;
+		left: 230px;
+		@include transition(all, 1s, ease);
+	}
+	#cons-ind-linea {
+		top: 100px;
+		left: 212px;
+		@include border(0 5px 5px 0);
+		@include transitions(width 1s, height 1s);
+	}
+	p {
+		color: $color-oscuro;
+		font-family: $fuente-secundaria;
+		text-align: justify;
+		@include dimensiones(370px, 50px);
+		position: absolute;
+		top: 110px;
+		left: 225px;
+		a {
+			color: $color-secundario;
+		}
+	}
+	a {
+		&:hover {
+			h2 {
+				color: black;
+				font-weight: bold;
+				left: 250px;
+			}
+			+ #cons-ind-linea {
+				@include dimensiones(450px, 10px);
+			}
+		}
+	}
+}
+// =================== 
+// FOOTER
+// ===================
+footer {
+	background-color: $color-primario;
+	color: $color-claro;
+	text-align: center;
+	#footer-up {
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: flex;
+		-webkit-justify-content: space-around;
+		-moz-justify-content: space-around;
+		-ms-justify-content: space-around;
+		justify-content: space-around;
+		#direccion {
+			display: inline-block;
+			//margin-right: 20%;
+			address {
+				font-size: 16px;
+			}
+		}
+		#contacto {
+			display: inline-block;
+			height: 100%;
+			vertical-align: top;
+			a {
+				font-size: 16px;
+				color: $color-claro;	
+			}
+		}
+	}
+	#copyright {
+		height: 50px;
+		background-color: $color-secundario;
+		p {
+			margin-top: 15px;
+		}
+	}
+}
+// =================== 
+// BOTON IR ARRIBA
+// ===================
+.cd-top {
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	position: fixed;
+	bottom: 25px;
+	right: 25px;
+	@include border(5px);
+	box-shadow: 0px 0px 10px $color-oscuro;
+	color: $color-claro;
+	background: $color-primario;
+	i {
+		color: $color-claro;
+		font-size: 40px;
+	}
+	visibility: hidden;
+	opacity: 0;
+
+	-webkit-transition: opacity .3s 0s, visibility 0s .3s;
+	-moz-transition: opacity .3s 0s, visibility 0s .3s;
+	-ms-transition: opacity .3s 0s, visibility 0s .3s;
+	transition: opacity .3s 0s, visibility 0s .3s;
+
+	&.cd-is-visible, &.cd-fade-out, .no-touch &:hover {
+		-webkit-transition: opacity .3s 0s, visibility 0s 0s;
+		-moz-transition: opacity .3s 0s, visibility 0s 0s;
+		-ms-transition: opacity .3s 0s, visibility 0s 0s;
+		transition: opacity .3s 0s, visibility 0s 0s;
+	}
+
+	&.cd-is-visible { /* the button becomes visible */
+		visibility: visible;
+		opacity: 0.8;
+	}
+}
